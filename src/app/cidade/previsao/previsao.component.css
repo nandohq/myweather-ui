@@ -1,0 +1,66 @@
+.mw-previsao
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  border-radius: 5px;
+  border: solid 1px #ebebeb;
+  background: #FFF;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.mw-previsao-header
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mw-previsao-resumo
+{
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.mw-previsao-data
+{
+  font-size: 1.5rem;
+}
+
+.mw-previsao-temperaturas
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: #49484A;
+}
+
+.mw-previsao-temperaturas span
+{
+  display: flex;
+}
+
+.mw-maxima
+{
+  color: tomato;
+  margin: 0 10px;
+}
+
+.mw-minima
+{
+  color: green;
+  margin: 0 10px;
+}
+
+.mw-previsao-icone img
+{
+  width: 200px;
+  filter: drop-shadow(5px 5px 5px #8a8a8a);
+}

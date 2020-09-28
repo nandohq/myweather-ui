@@ -1,0 +1,42 @@
+<div class="mw-container">
+  <p-toast position="top-right"></p-toast>
+  <div>
+    <h2>{{ isNew() ? 'Nova' : 'Edição de ' }} Cidade</h2>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="salvar()">
+    <div class="p-fluid p-grid">
+      <div class="p-field p-col-4">
+        <label for="">País</label>
+        <p-autoComplete formGroupName="pais" [suggestions]="sugestoesPaises" [minLength]="2" *ngIf="isNew()"
+            (completeMethod)="sugerirPais($event)" (onSelect)="selecionarPais($event)" rende
+            (onClear)="limparPais()" (onBlur)="checarCampo(form.get('pais.id'))" field="label"></p-autoComplete>
+
+        <input pInputText [value]="form.get('pais.label').value" type="text" *ngIf="!isNew()" disabled="true">
+        <mw-message [control]="form.get('pais.id')" error="required" message="Selecione um dos países sugeridos"></mw-message>
+
+      </div>
+      <div class="p-field p-col-8">
+        <label for="">Nome</label>
+        <p-autoComplete formGroupName="nome" [suggestions]="sugestoesCidades" [minLength]="2" *ngIf="isNew()"
+            (completeMethod)="sugerirCidade($event)" (onSelect)="selecionarCidade($event)" [disabled]="form.get('nome').disabled"
+            (onClear)="limparCidade()" (onBlur)="checarCampo(form.get('nome'))" field="label"></p-autoComplete>
+
+        <input pInputText [value]="form.get('label').value" type="text" *ngIf="!isNew()" disabled = true>
+        <mw-message [control]="form.get('nome')" error="required" message="Selecione uma das cidades sugeridas"></mw-message>
+      </div>
+      <div class="p-field p-col-12">
+        <label for="">Descrição</label>
+        <textarea pInputTextarea formControlName="descricao" [rows]="10"></textarea>
+      </div>
+    </div>
+    <div class="mw-crud p-grid">
+      <div>
+        <button pButton (click)="pesquisar()" type="button" label="Pesquisar" class="p-button-outlined"></button>
+      </div>
+      <div>
+        <button pButton type="submit" label="Salvar"></button>
+      </div>
+    </div>
+  </form>
+</div>

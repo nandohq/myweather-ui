@@ -1,27 +1,10 @@
-# MyweatherUi
+# myweather-ui
+API Rest de cadastro de cidades e consulta de previsão do tempo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
+### Configurando ambiente
 
-## Development server
+A _myweather-ui_ utiliza a API _myweather-api_ para consultar a previsão do tempo. É necessário ter esse serviço rodando para que o client funcione
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A _myweather-ui_ utiliza a API [OwnCityFinder](https://gitlab.com/mvysny/owm-city-finder/tree/master/owm-city-finder-server) para consultar as cidades que o usuário está cadastrando, de modo a garantir estas constam na base da API [OpenWeather](https://openweathermap.org/api) (usada pela _myweather-api_ para consultar a previsão do tempo). É necessário rodar a imagem Docker em conjunto com a API _myweather-api_ para obter o correto funcionamento, conforme descrito na página do GitHub do projeto
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Certifique-se de atualizar as referências para os _endpoints_ do backend nas classes de serviço e no arquivo _proxy.config.js_ (para propósitos de execução local, esse arquivo configura um contorno do controle _CORS_ no acesso à API)

@@ -1,0 +1,71 @@
+<div class="mw-container">
+  <p-toast position="top-right"></p-toast>
+  <div>
+    <h2>Consulta de Cidades</h2>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="filtrar()" >
+    <div class="p-fluid p-grid">
+      <div class="p-field p-col-4">
+        <label for="">País</label>
+        <p-autoComplete formGroupName="pais" [suggestions]="sugestoesPaises" [minLength]="2"
+            (completeMethod)="sugerirPais($event)" (onSelect)="selecionarPais($event)"
+            (onClear)="limparPais()" (onBlur)="checarCampo(form.get('pais.id'))" field="label"></p-autoComplete>
+
+      </div>
+      <div class="p-field p-col-4">
+        <label for="">Nome</label>
+        <input pInputText formControlName="nome" type="text" />
+      </div>
+      <div class="p-field p-col-4">
+        <label for="">Descrição</label>
+        <input pInputText formControlName="descricao"/>
+      </div>
+    </div>
+    <div class="mw-crud p-grid">
+      <div>
+        <button pButton type="submit" label="Pesquisar"></button>
+        <button pButton (click)="limpar()" type="button" label="Limpar" class="p-button-link"></button>
+      </div>
+      <div>
+        <button pButton (click)="nova()" type="button" label="Nova" class="p-button-outlined"></button>
+      </div>
+    </div>
+  </form>
+  <hr />
+  <div >
+    <p-table #mwtable [value]="cidadesRetornadas" [responsive]="true" [paginator]="true" [rows]="filter.size"
+          [rowsPerPageOptions]="[5,10,15,20]" [lazy]="true" [totalRecords]="total"  (onLazyLoad)="trocarPagina($event)">
+        <ng-template pTemplate="header">
+          <tr>
+            <th class="mw-col-fixed">País</th>
+            <th class="mw-col-fixed">Nome</th>
+            <th>Descrição</th>
+            <th class="mw-col-fixed">Ações</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-cidade>
+          <tr>
+            <td class="mw-col-fixed">{{ cidade.pais.label }}</td>
+            <td class="mw-col-fixed">{{ cidade.nome }}</td>
+            <td >{{ cidade.descricao }}</td>
+            <td class="mw-col-fixed">
+              <p-splitButton label="Previsão" icon="fas fa-cloud-sun-rain" styleClass="p-button-secondary"
+                (onClick)="obterPrevisao(cidade.id)" [model]="getAcoes(cidade)"></p-splitButton>
+            </td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="6">
+              Nenhum cidade encontrada
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <mw-previsao [previsao]="previsao" [(exibir)]="exibirPrevisao" (fechar)="fecharModal($event)"></mw-previsao>
+      <p-confirmDialog header="Confirma exclusão" acceptLabel="Sim" rejectLabel="Não" icon="fas fa-exclamation-triangle"></p-confirmDialog>
+  </div>
+</div>

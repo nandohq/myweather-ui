@@ -1,0 +1,30 @@
+<p-dialog [(visible)]="exibir" [closable]="false" modal="true" resizable="false" style="width: 500px">
+  <p-header>
+      Previsão do tempo para {{ previsao?.cidade }} nos próximos 6 dias
+  </p-header>
+  <div class="p-grid">
+    <div *ngFor="let diaPrevisto of previsao?.diasPrevistos" class="p-lg-4 p-md-4 p-sm-12 p-xs-12">
+      <div class="mw-previsao">
+        <div class="mw-previsao-header">
+          <span class="mw-previsao-data">{{ diaPrevisto.data | date : 'dd/MM/yyyy'}}</span>
+          <div>
+            <div class="mw-previsao-resumo">
+              <div class="mw-previsao-temperaturas">
+                <span><i class="fas fa-arrow-up mw-maxima"></i> {{ diaPrevisto.minima + 'º'}}</span>
+                <span><i class="fas fa-arrow-down mw-minima"></i> {{ diaPrevisto.minima + 'º'}}</span>
+              </div>
+              <div class=mw-previsao-icone>
+                <img [src]="iconUrl + diaPrevisto.icone + '.png'" [alt]="diaPrevisto.descricao">
+              </div>
+            </div>
+            <div> <strong>Sensação: </strong> {{ diaPrevisto.sensacao + 'º' }} | <strong>Umidade: </strong> {{ diaPrevisto.umidade + '%' }} </div>
+          </div>
+          <span>{{ diaPrevisto.descricao }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+     <p-button type="button" label="Fechar" (click)="fecharModal()" ></p-button>
+  </p-footer>
+</p-dialog>

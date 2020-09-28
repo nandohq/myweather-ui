@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.config.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,7 +11,8 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~10.1.3",
+    "@angular/animations": "^10.1.3",
+    "@angular/cdk": "^10.2.2",
     "@angular/common": "~10.1.3",
     "@angular/compiler": "~10.1.3",
     "@angular/core": "~10.1.3",
@@ -19,6 +20,11 @@
     "@angular/platform-browser": "~10.1.3",
     "@angular/platform-browser-dynamic": "~10.1.3",
     "@angular/router": "~10.1.3",
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "moment": "^2.29.0",
+    "primeflex": "^2.0.0",
+    "primeicons": "^4.0.0",
+    "primeng": "^10.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
