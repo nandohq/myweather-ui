@@ -9,3 +9,8 @@ A _myweather-ui_ utiliza a API [OwnCityFinder](https://gitlab.com/mvysny/owm-cit
 É necessário rodar a imagem Docker do serviço _OwnCityFinder_, (conforme descrito na página do _GitHub_ do projeto) em conjunto com a API _myweather-api_ para obter o correto funcionamento.
 
 Certifique-se de atualizar as referências para os _endpoints_ do backend nas classes de serviço e no arquivo _proxy.config.js_ (para propósitos de execução local, esse arquivo configura um contorno do controle _CORS_ no acesso à API _OwnCityFinder_)
+
+### Instruções de uso
+
+Uma vez clonado o projeto, acesse o diretório pelo terminal de sua preferência e execute o comando `npm install` para instalar as dependências necessárias.
+Após o término da instalação, execute o comando `npm start` para rodar a aplicação
