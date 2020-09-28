@@ -12,5 +12,6 @@ Certifique-se de atualizar as referências para os _endpoints_ do backend nas cl
 
 ### Instruções de uso
 
-Uma vez clonado o projeto, acesse o diretório pelo terminal de sua preferência e execute o comando `npm install` para instalar as dependências necessárias.
+Para configurar o projeto, é necessário instalar o [Node.js](https://nodejs.org/pt-br/) e o gerenciador de pacotes `npm`.
+Uma vez clonado o projeto e instalado os requisitos, acesse o diretório pelo terminal de sua preferência e execute o comando `npm install` para instalar as dependências necessárias.
 Após o término da instalação, execute o comando `npm start` para rodar a aplicação
